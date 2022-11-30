@@ -36,7 +36,7 @@ function Note(props) {
         user: enterUser,
         age:enterAge
       };
-      //console.log(enterUser);
+
       props.newuser(objUser);
       setEnterUser("");
       setEnterAge('')
@@ -45,9 +45,10 @@ function Note(props) {
   const errorHandler = ()=>{
     setError(null);
   }
+
   
   return (
-  <div>
+  <React.Fragment>
     {error && <ErrorModel title={error.title} message={error.message} onConfirm={errorHandler} />}
       <div className="input">
           <label>User Name :</label>
@@ -61,7 +62,7 @@ function Note(props) {
             <input type="number" placeholder="User Age" value={enterAge} onChange={onChangeAge}/>
             <button className="button" onClick={onClickAddNote}>Add User</button>
       </div>
-   </div>
+   </React.Fragment>
   );
 }
 
